@@ -83,6 +83,7 @@ def arrowHead():
 def main():
     global my_text
     file_path = record.record_wave()
+    log = open("log.txt",'a')
     f = open(file_path, 'rb')
     #rb表示以二进制格式只读打开文件
  
@@ -161,10 +162,11 @@ def main():
         #heart(-80, -100, 1.5)     #画出第二颗心
         #arrow()                   #画出穿过两颗心的直线
         #arrowHead()               #画出箭的箭头
-        go_to(0, 0)
+        go_to(-200, 0)
         pensize(1)
         write("你说了:\""+my_text+"\" ,爸爸也爱你", move=True, align="left", font=("微软雅黑", 20, "normal"))
         done()
+        log.write(my_text+"@"+file_path+"\n")
   
     #print(result)
     return
